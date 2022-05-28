@@ -113,6 +113,22 @@ const StyledTitleInputSecondary = styled.input`
   }
 `;
 
+const StylectContactHeader = styled.h5`
+  margin: 0;
+  color: #fff;
+  width: 40%;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  height: 50%;
+  padding: 10px 5px;
+  border: 2px solid #f39e09;
+  z-index: 1001;
+  grid-area: 5 / 6 / 6 / 7;
+`;
+
 export {
   StyledImageHolder,
   StyledTitleModal,
@@ -122,4 +138,5 @@ export {
   StyledEditButton,
   StyledTitleInputMain,
   StyledTitleInputSecondary,
+  StylectContactHeader,
 };

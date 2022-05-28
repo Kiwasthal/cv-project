@@ -2,6 +2,7 @@ import './App.css';
 import {
   RightPartition,
   StyledImageHolder,
+  StylectContactHeader,
 } from './StyledComponents/Components.styled';
 import TitleModal from './Components/TitleModal';
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <StyledImageHolder />
       <RightPartition />
       <TitleModal />
+      <StylectContactHeader>CONTACT ME</StylectContactHeader>
     </div>
   );
 }
