@@ -5,6 +5,8 @@ import {
   StylectContactHeader,
 } from './StyledComponents/Components.styled';
 import TitleModal from './Components/TitleModal';
+import ContactManager from './Components/ContactManager';
+
 function App() {
   return (
     <div className="App">
@@ -12,6 +14,7 @@ function App() {
       <RightPartition />
       <TitleModal />
       <StylectContactHeader>CONTACT ME</StylectContactHeader>
+      <ContactManager />
     </div>
   );
 }

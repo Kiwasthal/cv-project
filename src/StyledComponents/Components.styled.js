@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const RightPartition = styled.div`
   background-color: #2a2a2c;
-  grid-area: 1 / 6 / 8 / 7;
+  grid-area: 1 / 6 / 12 / 7;
   z-index: 999;
 `;
 
@@ -30,6 +30,7 @@ const StyledUserHeader = styled.h1`
   grid-area: 2 / 2 / 3 / 5;
   display: flex;
   justify-content: flex-start;
+  cursor: default;
 `;
 
 const StyledUserSubheader = styled.h4`
@@ -40,6 +41,7 @@ const StyledUserSubheader = styled.h4`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  cursor: default;
 `;
 
 const StyledEditButton = styled.button`
@@ -127,6 +129,17 @@ const StylectContactHeader = styled.h5`
   border: 2px solid #f39e09;
   z-index: 1001;
   grid-area: 5 / 6 / 6 / 7;
+  cursor: default;
+`;
+
+const StyledContactContainer = styled.div`
+  justify-self: center;
+  width: 80%;
+  grid-area: 7 / 6 / 10 / 7;
+  border: 1px solid red;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
 `;
 
 export {
@@ -139,4 +152,5 @@ export {
   StyledTitleInputMain,
   StyledTitleInputSecondary,
   StylectContactHeader,
+  StyledContactContainer,
 };
