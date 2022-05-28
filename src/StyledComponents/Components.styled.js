@@ -15,7 +15,7 @@ const StyledImageHolder = styled.div`
 `;
 
 const StyledTitleModal = styled.div`
-  background-color: orange;
+  background-color: #f39e09;
   grid-area: 3 / 4 / 4 / 7;
   display: grid;
   grid-template-rows: 20% 40% 20% 20%;
@@ -43,12 +43,74 @@ const StyledUserSubheader = styled.h4`
 `;
 
 const StyledEditButton = styled.button`
-  border: 2px solid #2a2a2c;
+  border: 3px solid #2a2a2c;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 8px;
-  font-size: 16px;
+  font-size: 24px;
   width: 100px;
   height: 50px;
   color: #fff;
+  justify-self: flex-end;
+  background-color: orange;
+  border-radius: 25px;
+  box-shadow: 0px 5px 3px black;
+  transition: all 0.2s ease-out;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
+const StyledTitleInputMain = styled.input`
+  padding: 3px;
+  border: none;
+  outline: none;
+  background-color: black;
+  width: 60%;
+  height: 60%;
+  color: #fff;
+  font-weight: 600;
+  grid-area: 2 / 2 / 3 / 5;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-radius: 20px;
+    &:focus {
+      padding-left: 10px;
+      font-weight: 600;
+      color: #fff;
+      border: 2px solid yellow;
+      transform: scale(1.1);
+    }
+  }
+`;
+
+const StyledTitleInputSecondary = styled.input`
+  padding: 3px;
+  outline: none;
+  background-color: black;
+  width: 60%;
+  height: 80%;
+  color: #fff;
+  font-weight: 600;
+  grid-area: 3 / 2 / 4 / 5;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-radius: 20px;
+    &:focus {
+      padding-left: 10px;
+      font-weight: 600;
+      color: #fff;
+      border: 2px solid yellow;
+      transform: scale(1.1);
+    }
+  }
 `;
 
 export {
@@ -58,4 +120,6 @@ export {
   StyledUserSubheader,
   RightPartition,
   StyledEditButton,
+  StyledTitleInputMain,
+  StyledTitleInputSecondary,
 };
