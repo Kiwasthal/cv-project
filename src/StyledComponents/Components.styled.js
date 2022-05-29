@@ -203,11 +203,78 @@ const StyledSkillsHeader = styled.h5`
   cursor: default;
 `;
 
-const StyledSkillsContainer = styled.div`
+const StyledSkillsWrapper = styled.div`
   width: 80%;
-  border: 1px solid red;
+  display: grid;
+  grid-template-rows: 45px 1fr;
   grid-area: 10 / 7 / 13 / 8;
   justify-self: center;
+  z-index: 1001;
+  position: relative;
+`;
+
+const StyledSkillsContainer = styled.div`
+  grid-area: 2 / 1 / 3 / 2;
+  height: 100%;
+  word-wrap: 100%;
+  border: 1px solid orange;
+  z-index: 1002;
+`;
+
+const StyledAddSKillButton = styled.button`
+  position: absolute;
+  left: -20px;
+  box-shadow: 0 5px black;
+  padding: 5px 5px;
+  border-radius: 10px;
+  height: 40px;
+  width: 70px;
+  background-color: orange;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.2s ease-in;
+  position: relative;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
+const StyledAddSkillFormContainer = styled.div`
+  border-radius: 10px;
+  top: -100px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background-color: #2a2a2c;
+  border: 1px solid orange;
+  z-index: 1003;
+  color: orange;
+  font-size: 24px;
+  position: relative;
+`;
+
+const StyledCloseFormSymbol = styled.div`
+  position: absolute;
+  padding-top: 10px;
+  padding-right: 10px;
+  transform: rotate(45deg);
+  right: 0;
+  cursor: pointer;
+`;
+
+const StyledSkillInput = styled.input`
+  width: 80%;
+  height: 50%;
+  background-color: black;
+  color: #fff;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-radius: 15px;
+  }
 `;
 
 const StyledEducationModal = styled.div`
@@ -237,7 +304,6 @@ const StyledContactInformationHolder = styled.p`
   padding: 0;
   color: #fff;
   height: 100%;
-
   font-size: 0.7rem;
 `;
 
@@ -261,5 +327,10 @@ export {
   StyledContactEditButton,
   StyledContactInput,
   StyledSkillsHeader,
+  StyledSkillsWrapper,
   StyledSkillsContainer,
+  StyledAddSKillButton,
+  StyledAddSkillFormContainer,
+  StyledCloseFormSymbol,
+  StyledSkillInput,
 };
