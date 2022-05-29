@@ -39,7 +39,9 @@ export class ContactManager extends Component {
         mainInput: '',
         templateText: '6901010101',
       },
-      buttonText: 'EDIT',
+      buttonAddressText: 'EDIT',
+      buttonWebText: 'EDIT',
+      buttonPhoneText: 'EDIT',
     };
   }
 
@@ -79,15 +81,27 @@ export class ContactManager extends Component {
     });
   }
 
-  createConfirmBtn() {
+  createConfirmAddressBtn() {
     this.setState({
-      buttonText: 'CONFIRM',
+      buttonAddressText: 'CONFIRM',
     });
   }
 
-  createEditBtn() {
+  createEditAddressBtn() {
     this.setState({
-      buttonText: 'EDIT',
+      buttonAddressText: 'EDIT',
+    });
+  }
+
+  createConfirmWebBtn() {
+    this.setState({
+      buttonWebText: 'CONFIRM',
+    });
+  }
+
+  createEditWebBtn() {
+    this.setState({
+      buttonWebText: 'EDIT',
     });
   }
 
@@ -196,8 +210,10 @@ export class ContactManager extends Component {
     const hideAddressEditButon = this.hideAddressEditingButton.bind(this);
     const hideWebEditButton = this.hideWebEditingButton.bind(this);
     const hidePhoneEditButton = this.hidePhoneEditingButton.bind(this);
-    const createConfirmBtn = this.createConfirmBtn.bind(this);
-    const createEditBtn = this.createEditBtn.bind(this);
+    const createConfirmAddressBtn = this.createConfirmAddressBtn.bind(this);
+    const createEditAddressBtn = this.createEditAddressBtn.bind(this);
+    const createConfirmWebBtn = this.createConfirmWebBtn.bind(this);
+    const createEditWebBtn = this.createEditWebBtn.bind(this);
     const startAddressEdit = this.startAddressEditing.bind(this);
     const endAddressEdit = this.endAddressEditing.bind(this);
     const startWebEdit = this.startWebEditing.bind(this);
@@ -222,12 +238,12 @@ export class ContactManager extends Component {
           isEdited={this.state.addressEditing}
           startEdit={startAddressEdit}
           endEdit={endAddressEdit}
-          handleEdit={createConfirmBtn}
+          handleEdit={createConfirmAddressBtn}
           handleMain={handleAddressMainInput}
           handleSecondary={handleAddressSecondary}
           confirmValues={confirmAddressChange}
-          handleConfirm={createEditBtn}
-          buttonText={this.state.buttonText}
+          handleConfirm={createEditAddressBtn}
+          buttonText={this.state.buttonAddressText}
         />
         <WebContainer
           textUpper={this.state.webMain.templateText}
@@ -238,12 +254,12 @@ export class ContactManager extends Component {
           isEdited={this.state.webEditing}
           startEdit={startWebEdit}
           endEdit={endWebEdit}
-          handleEdit={createConfirmBtn}
+          handleEdit={createConfirmWebBtn}
           handleMain={handleWebMainInput}
           handleSecondary={handleNewWebSecondary}
           confirmValues={confirmWebChange}
-          handleConfirm={createConfirmBtn}
-          buttonText={this.state.buttonText}
+          handleConfirm={createEditWebBtn}
+          buttonText={this.state.buttonWebText}
         />
         <PhoneContainer
           textUpper={this.state.phoneMain.templateText}
