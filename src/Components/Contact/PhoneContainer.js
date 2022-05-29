@@ -5,22 +5,22 @@ import {
 } from '../../StyledComponents/Components.styled';
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
-class AddressContainer extends Component {
+class PhoneContainer extends Component {
   render() {
     const { textUpper, textBottom } = this.props;
     return (
       <StyledContactInformationContainer>
-        <StyledContactSubHeader>ADDRESS</StyledContactSubHeader>
+        <StyledContactSubHeader>PHONE</StyledContactSubHeader>
         <FontAwesomeIcon
-          icon={faLocationDot}
+          icon={faPhone}
           style={{
             color: 'orange',
             gridArea: '1 / 1 / 4 / 2',
             justifySelf: 'Center',
             alignSelf: 'flex-start',
-            height: '40px',
+            height: '30px',
             marginTop: '10px',
           }}
         />
@@ -35,4 +35,4 @@ class AddressContainer extends Component {
   }
 }
 
-export default AddressContainer;
+export default PhoneContainer;

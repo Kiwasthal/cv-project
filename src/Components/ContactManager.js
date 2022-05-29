@@ -3,8 +3,8 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { StyledContactContainer } from '../StyledComponents/Components.styled';
 import AddressContainer from './Contact/AddressContainer';
-//         <FontAwesomeIcon icon={faGlobe} style={{ color: 'orange' }} />
-//         <FontAwesomeIcon icon={faPhone} style={{ color: 'orange' }} /> */}
+import WebContainer from './Contact/WebContainer';
+import PhoneContainer from './Contact/PhoneContainer';
 
 import { Component } from 'react';
 
@@ -17,7 +17,7 @@ export class ContactManager extends Component {
         secondaryInput: '',
         editing: false,
         templateText: '123 Street Athens',
-        templateTextCity: 'Athens',
+        templateTextCity: 'Greece',
       },
       web: {
         mainInput: '',
@@ -38,9 +38,18 @@ export class ContactManager extends Component {
   render() {
     return (
       <StyledContactContainer>
-        <AddressContainer />
-        <AddressContainer />
-        <AddressContainer />
+        <AddressContainer
+          textUpper={this.state.address.templateText}
+          textBottom={this.state.address.templateTextCity}
+        />
+        <WebContainer
+          textUpper={this.state.web.templateText}
+          textBottom={this.state.web.templateTextSecondary}
+        />
+        <PhoneContainer
+          textUpper={this.state.phone.templateText}
+          textBottom={this.state.phone.templateTextSecondary}
+        />
       </StyledContactContainer>
     );
   }

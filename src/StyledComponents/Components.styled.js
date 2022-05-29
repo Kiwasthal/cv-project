@@ -136,7 +136,7 @@ const StyledContactContainer = styled.div`
   justify-self: center;
   width: 80%;
   grid-area: 7 / 7 / 10 / 8;
-  border: 1px solid red;
+
   z-index: 1000;
   display: grid;
   grid-template-rows: 70px 70px 70px;
@@ -145,7 +145,7 @@ const StyledContactContainer = styled.div`
 const StyledContactInformationContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
 `;
 
 const StyledContactSubHeader = styled.h6`
@@ -176,6 +176,14 @@ const StyledFooter = styled.div`
   background-color: orange;
 `;
 
+const StyledContactInformationHolder = styled.p`
+  justify-self: flex-start;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 0.7rem;
+`;
+
 export {
   StyledImageHolder,
   StyledTitleModal,
@@ -192,4 +200,5 @@ export {
   StyledEducationModal,
   StyledEducationTitle,
   StyledFooter,
+  StyledContactInformationHolder,
 };
