@@ -3,7 +3,14 @@ import { Component } from 'react';
 
 export class ContactEditButton extends Component {
   render() {
-    const { text, handleEdit, handleConfirm, startEdit, endEdit } = this.props;
+    const {
+      text,
+      handleEdit,
+      handleConfirm,
+      startEdit,
+      endEdit,
+      confirmValues,
+    } = this.props;
     return text === 'EDIT' ? (
       <StyledContactEditButton
         onClick={() => {
@@ -18,6 +25,7 @@ export class ContactEditButton extends Component {
         onClick={() => {
           handleConfirm();
           endEdit();
+          confirmValues();
         }}
         style={{ fontSize: '12px' }}
       >

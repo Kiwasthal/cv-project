@@ -87,23 +87,32 @@ export class ContactManager extends Component {
     });
   }
 
-  startAdressEditing() {
+  startAddressEditing() {
     this.setState({
       addressEditing: true,
     });
   }
 
-  endAdressEditing() {
+  endAddressEditing() {
     this.setState({
       addressEditing: false,
     });
   }
 
-  handleNewAdressMainInput(e) {
+  handleNewAddressMainInput(e) {
     this.setState({
       addressMain: {
         mainInput: e.target.value,
         templateText: this.state.addressMain.templateText,
+      },
+    });
+  }
+
+  handleNewAddressSecondary(e) {
+    this.setState({
+      addressSecondary: {
+        mainInput: e.target.value,
+        templateTextCity: this.state.addressSecondary.templateTextCity,
       },
     });
   }
@@ -114,11 +123,15 @@ export class ContactManager extends Component {
         mainInput: '',
         templateText: this.state.addressMain.mainInput,
       },
+      addressSecondary: {
+        mainInput: '',
+        templateTextCity: this.state.addressSecondary.mainInput,
+      },
     });
   }
 
   render() {
-    const renderAdressEditButton = this.revealAddressEditingButton.bind(this);
+    const renderAddressEditButton = this.revealAddressEditingButton.bind(this);
     const renderWebEditButton = this.revealWebEditingButton.bind(this);
     const renderPhoneEditButton = this.revealPhoneHoveringButton.bind(this);
     const hideAddressEditButon = this.hideAddressEditingButton.bind(this);
@@ -126,25 +139,27 @@ export class ContactManager extends Component {
     const hidePhoneEditButton = this.hidePhoneEditingButton.bind(this);
     const createConfirmBtn = this.createConfirmBtn.bind(this);
     const createEditBtn = this.createEditBtn.bind(this);
-    const startAddressEdit = this.startAdressEditing.bind(this);
-    const endAddressEdit = this.endAdressEditing.bind(this);
-    const handleAddressInput = this.handleNewAdressMainInput.bind(this);
-    const confirmAdressChange = this.confirmNewInput.bind(this);
+    const startAddressEdit = this.startAddressEditing.bind(this);
+    const endAddressEdit = this.endAddressEditing.bind(this);
+    const handleAddressMainInput = this.handleNewAddressMainInput.bind(this);
+    const handleAddressSecondary = this.handleNewAddressSecondary.bind(this);
+    const confirmAddressChange = this.confirmNewInput.bind(this);
 
     return (
       <StyledContactContainer>
         <AddressContainer
           textUpper={this.state.addressMain.templateText}
           textBottom={this.state.addressSecondary.templateTextCity}
-          renderBtn={renderAdressEditButton}
+          renderBtn={renderAddressEditButton}
           hideBtn={hideAddressEditButon}
           isHovered={this.state.addressHovering}
           isEdited={this.state.addressEditing}
           startEdit={startAddressEdit}
           endEdit={endAddressEdit}
           handleEdit={createConfirmBtn}
-          handleChange={handleAddressInput}
-          confirmValues={confirmAdressChange}
+          handleMain={handleAddressMainInput}
+          handleSecondary={handleAddressSecondary}
+          confirmValues={confirmAddressChange}
           handleConfirm={createEditBtn}
           buttonText={this.state.buttonText}
         />

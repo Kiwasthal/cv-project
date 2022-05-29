@@ -2,6 +2,7 @@ import { Component } from 'react';
 import {
   StyledContactSubHeader,
   StyledContactInformationHolder,
+  StyledContactInput,
 } from '../../StyledComponents/Components.styled';
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,9 +20,12 @@ class AddressContainer extends Component {
       isEdited,
       buttonText,
       handleEdit,
+      handleMain,
+      handleSecondary,
       handleConfirm,
       startEdit,
       endEdit,
+      confirmValues,
     } = this.props;
 
     return isEdited ? (
@@ -38,14 +42,18 @@ class AddressContainer extends Component {
             marginTop: '10px',
           }}
         />
-        <input type="text" />
-        <input type="text" />
+        <StyledContactInput
+          style={{ alignSelf: 'flex-start' }}
+          onChange={handleMain}
+        />
+        <StyledContactInput onChange={handleSecondary} />
         <ContactEditButton
           handleEdit={handleEdit}
           handleConfirm={handleConfirm}
           text={buttonText}
           startEdit={startEdit}
           endEdit={endEdit}
+          confirmValues={confirmValues}
         />
       </StyledContactInformationContainer>
     ) : isHovered ? (

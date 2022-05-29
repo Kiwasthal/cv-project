@@ -155,6 +155,13 @@ const StyledContactSubHeader = styled.h6`
   justify-self: flex-start;
 `;
 
+const StyledContactInput = styled.input`
+  width: 80%;
+  height: 50%;
+  background-color: black;
+  color: #fff;
+`;
+
 const StyledContactEditButton = styled.button`
   position: absolute;
   color: #fff;
@@ -214,4 +221,5 @@ export {
   StyledFooter,
   StyledContactInformationHolder,
   StyledContactEditButton,
+  StyledContactInput,
 };
