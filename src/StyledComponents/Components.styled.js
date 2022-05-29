@@ -136,7 +136,6 @@ const StyledContactContainer = styled.div`
   justify-self: center;
   width: 80%;
   grid-area: 7 / 7 / 10 / 8;
-
   z-index: 1000;
   display: grid;
   grid-template-rows: 70px 70px 70px;
@@ -181,6 +180,8 @@ const StyledContactInformationHolder = styled.p`
   margin: 0;
   padding: 0;
   color: #fff;
+  height: 100%;
+
   font-size: 0.7rem;
 `;
 

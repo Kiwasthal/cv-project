@@ -9,9 +9,9 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 class AddressContainer extends Component {
   render() {
-    const { textUpper, textBottom } = this.props;
-    return (
-      <StyledContactInformationContainer>
+    const { textUpper, textBottom, renderBtn, hideBtn, isHovered } = this.props;
+    return isHovered ? (
+      <StyledContactInformationContainer onMouseLeave={hideBtn}>
         <StyledContactSubHeader>ADDRESS</StyledContactSubHeader>
         <FontAwesomeIcon
           icon={faLocationDot}
@@ -20,7 +20,7 @@ class AddressContainer extends Component {
             gridArea: '1 / 1 / 4 / 2',
             justifySelf: 'Center',
             alignSelf: 'flex-start',
-            height: '40px',
+            height: '35px',
             marginTop: '10px',
           }}
         />
@@ -28,6 +28,28 @@ class AddressContainer extends Component {
           {textUpper}
         </StyledContactInformationHolder>
         <StyledContactInformationHolder>
+          {textBottom}
+        </StyledContactInformationHolder>
+        <button style={{ position: 'absolute' }}>Edit </button>
+      </StyledContactInformationContainer>
+    ) : (
+      <StyledContactInformationContainer onMouseEnter={renderBtn}>
+        <StyledContactSubHeader>ADDRESS</StyledContactSubHeader>
+        <FontAwesomeIcon
+          icon={faLocationDot}
+          style={{
+            color: 'orange',
+            gridArea: '1 / 1 / 4 / 2',
+            justifySelf: 'Center',
+            alignSelf: 'flex-start',
+            height: '35px',
+            marginTop: '10px',
+          }}
+        />
+        <StyledContactInformationHolder style={{ gridArea: 2 / 2 / 3 / 3 }}>
+          {textUpper}
+        </StyledContactInformationHolder>
+        <StyledContactInformationHolder style={{ gridArea: 1 / 2 / 2 / 3 }}>
           {textBottom}
         </StyledContactInformationHolder>
       </StyledContactInformationContainer>
