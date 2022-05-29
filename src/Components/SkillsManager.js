@@ -1,9 +1,9 @@
 import {
   StyledSkillsWrapper,
-  StyledSkillsContainer,
   StyledAddSKillButton,
 } from '../StyledComponents/Components.styled';
 import FormSection from './Skills/FormSection';
+import SkillContainer from './Skills/SkillContainer';
 
 import { Component } from 'react';
 
@@ -13,6 +13,7 @@ export class SkillsManager extends Component {
     this.state = {
       hovered: false,
       formDisplaying: false,
+      skills: [],
     };
   }
 
@@ -40,28 +41,35 @@ export class SkillsManager extends Component {
     });
   }
 
+  addSkill(skill) {
+    this.setState(prevState => ({
+      skills: [...prevState.skills, skill],
+    }));
+  }
+
   render() {
     const startHover = this.HoverOver.bind(this);
     const stopHover = this.StopHovering.bind(this);
     const formDisplay = this.displayForm.bind(this);
     const closeForm = this.closeForm.bind(this);
+    const addSkill = this.addSkill.bind(this);
 
     return this.state.formDisplaying ? (
       <StyledSkillsWrapper onMouseLeave={stopHover}>
-        <StyledSkillsContainer />
+        <SkillContainer />
         <StyledAddSKillButton onClick={formDisplay}>
           ADD +{' '}
         </StyledAddSKillButton>
-        <FormSection closeForm={closeForm} />
+        <FormSection closeForm={closeForm} addSkill={addSkill} />
       </StyledSkillsWrapper>
     ) : this.state.hovered ? (
       <StyledSkillsWrapper onMouseLeave={stopHover}>
-        <StyledSkillsContainer />
+        <SkillContainer skills={this.state.skills} />
         <StyledAddSKillButton onClick={formDisplay}>ADD +</StyledAddSKillButton>
       </StyledSkillsWrapper>
     ) : (
       <StyledSkillsWrapper onMouseEnter={startHover}>
-        <StyledSkillsContainer />
+        <SkillContainer></SkillContainer>
       </StyledSkillsWrapper>
     );
   }

@@ -2,6 +2,7 @@ import {
   StyledAddSkillFormContainer,
   StyledCloseFormSymbol,
   StyledSkillInput,
+  StyledCreateSkill,
 } from '../../StyledComponents/Components.styled';
 
 import { Component } from 'react';
@@ -11,20 +12,52 @@ export class FormSection extends Component {
     super(props);
 
     this.state = {
-      skillName: '',
-      percentage: '',
+      skill: {
+        skillName: '',
+        percentage: '',
+      },
     };
   }
-  handleSkillChange(e) {
+
+  handleSkillChange = e =>
     this.setState({
-      skillName: e.target.value,
+      skill: {
+        skillName: e.target.value,
+        percentage: this.state.skill.percentage,
+      },
+    });
+
+  handlePercentageChange = e => {
+    if (parseInt(e.target.value) > 100)
+      this.setState({
+        skill: {
+          skillName: this.state.skill.skillName,
+          percentage: '100',
+        },
+      });
+    else
+      this.setState({
+        skill: {
+          skillName: this.state.skill.skillName,
+          percentage: e.target.value,
+        },
+      });
+  };
+
+  resetForm() {
+    this.setState({
+      skill: {
+        skillName: '',
+        percentage: '',
+      },
     });
   }
 
-  handlePercentageChange;
-
   render() {
-    const { closeForm } = this.props;
+    const { closeForm, addSkill } = this.props;
+
+    const resetForm = this.resetForm.bind(this);
+
     return (
       <StyledAddSkillFormContainer>
         <StyledCloseFormSymbol onClick={closeForm}>+</StyledCloseFormSymbol>
@@ -42,7 +75,8 @@ export class FormSection extends Component {
             <label>Skill Name</label>
             <StyledSkillInput
               type="text"
-              value={this.state.skillName}
+              value={this.state.skill.skillName}
+              onChange={this.handleSkillChange}
             ></StyledSkillInput>
           </div>
           <div
@@ -56,9 +90,25 @@ export class FormSection extends Component {
             }}
           >
             <label>Percentage</label>
-            <StyledSkillInput />
+            <StyledSkillInput
+              type="number"
+              min="1"
+              max="100"
+              value={this.state.skill.percentage}
+              onChange={this.handlePercentageChange}
+            ></StyledSkillInput>
           </div>
-          <button>CREATE</button>
+          <StyledCreateSkill
+            formnovalidate
+            onClick={e => {
+              e.preventDefault();
+              addSkill(this.state.skill);
+              closeForm();
+              resetForm();
+            }}
+          >
+            Create
+          </StyledCreateSkill>
         </form>
       </StyledAddSkillFormContainer>
     );

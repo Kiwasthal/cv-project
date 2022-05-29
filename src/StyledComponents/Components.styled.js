@@ -215,8 +215,9 @@ const StyledSkillsWrapper = styled.div`
 
 const StyledSkillsContainer = styled.div`
   grid-area: 2 / 1 / 3 / 2;
+  display: grid;
+  grid-template-rows: 100px;
   height: 100%;
-  word-wrap: 100%;
   border: 1px solid orange;
   z-index: 1002;
 `;
@@ -277,6 +278,26 @@ const StyledSkillInput = styled.input`
   }
 `;
 
+const StyledCreateSkill = styled.button`
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: orange;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid black;
+  margin-top: 15px;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
 const StyledEducationModal = styled.div`
   grid-area: 8 / 1 / 9 /6;
   background-color: orange;
@@ -333,4 +354,5 @@ export {
   StyledAddSkillFormContainer,
   StyledCloseFormSymbol,
   StyledSkillInput,
+  StyledCreateSkill,
 };
