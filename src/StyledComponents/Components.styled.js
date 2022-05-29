@@ -160,6 +160,10 @@ const StyledContactInput = styled.input`
   height: 50%;
   background-color: black;
   color: #fff;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-radius: 15px;
+  }
 `;
 
 const StyledContactEditButton = styled.button`
@@ -168,8 +172,42 @@ const StyledContactEditButton = styled.button`
   border-radius: 5px;
   padding: 5px 10px;
   background-color: orange;
+  font-size: 12px;
   font-weight: 600;
   border: 1px solid black;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
+const StyledSkillsHeader = styled.h5`
+  margin: 0;
+  color: #fff;
+  width: 40%;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  height: 30%;
+  padding: 10px 5px;
+  border: 2px solid #f39e09;
+  z-index: 1001;
+  grid-area: 10 / 7 / 11 / 8;
+  cursor: default;
+`;
+
+const StyledSkillsContainer = styled.div`
+  width: 80%;
+  border: 1px solid red;
+  grid-area: 10 / 7 / 13 / 8;
+  justify-self: center;
 `;
 
 const StyledEducationModal = styled.div`
@@ -222,4 +260,6 @@ export {
   StyledContactInformationHolder,
   StyledContactEditButton,
   StyledContactInput,
+  StyledSkillsHeader,
+  StyledSkillsContainer,
 };

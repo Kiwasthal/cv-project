@@ -4,11 +4,13 @@ import {
   StyledImageHolder,
   StylectContactHeader,
   StyledFooter,
+  StyledSkillsHeader,
 } from './StyledComponents/Components.styled';
 import TitleModal from './Components/TitleModal';
 import ContactManager from './Components/ContactManager';
 import EductaionHeaderModal from './Components/Education/EductaionHeaderModal';
 import ExperienceHeaderModal from './Components/Experience/ExperienceHeaderModal';
+import SkillsManager from './Components/SkillsManager';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <ContactManager />
       <EductaionHeaderModal />
       <ExperienceHeaderModal />
+      <StyledSkillsHeader>SKILLS</StyledSkillsHeader>
+      <SkillsManager />
       <StyledFooter />
     </div>
   );
