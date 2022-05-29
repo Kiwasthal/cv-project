@@ -10,7 +10,6 @@ export class ContactEditButton extends Component {
       startEdit,
       endEdit,
       confirmValues,
-      argument,
     } = this.props;
     return text === 'EDIT' ? (
       <StyledContactEditButton

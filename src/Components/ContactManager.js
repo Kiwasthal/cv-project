@@ -105,6 +105,18 @@ export class ContactManager extends Component {
     });
   }
 
+  createConfirmPhoneBtn() {
+    this.setState({
+      buttonPhoneText: 'CONFIRM',
+    });
+  }
+
+  createEditPhoneBtn() {
+    this.setState({
+      buttonPhoneText: 'EDIT',
+    });
+  }
+
   startAddressEditing() {
     this.setState({
       addressEditing: true,
@@ -177,6 +189,24 @@ export class ContactManager extends Component {
     });
   }
 
+  handleNewPhoneMainInput(e) {
+    this.setState({
+      phoneMain: {
+        mainInput: e.target.value,
+        templateText: this.state.phoneMain.templateText,
+      },
+    });
+  }
+
+  handleNewPhoneSecondary(e) {
+    this.setState({
+      phoneSecondary: {
+        mainInput: e.target.value,
+        templateText: this.state.phoneSecondary.templateText,
+      },
+    });
+  }
+
   confirmNewInputAddress() {
     this.setState({
       addressMain: {
@@ -203,6 +233,19 @@ export class ContactManager extends Component {
     });
   }
 
+  confirmNewInputPhone() {
+    this.setState({
+      phoneMain: {
+        mainInput: '',
+        templateText: this.state.phoneMain.mainInput,
+      },
+      phoneSecondary: {
+        mainInput: '',
+        templateText: this.state.phoneSecondary.mainInput,
+      },
+    });
+  }
+
   render() {
     const renderAddressEditButton = this.revealAddressEditingButton.bind(this);
     const renderWebEditButton = this.revealWebEditingButton.bind(this);
@@ -214,6 +257,8 @@ export class ContactManager extends Component {
     const createEditAddressBtn = this.createEditAddressBtn.bind(this);
     const createConfirmWebBtn = this.createConfirmWebBtn.bind(this);
     const createEditWebBtn = this.createEditWebBtn.bind(this);
+    const createConfirmPhoneBtn = this.createConfirmPhoneBtn.bind(this);
+    const createEditPhoneBtn = this.createEditPhoneBtn.bind(this);
     const startAddressEdit = this.startAddressEditing.bind(this);
     const endAddressEdit = this.endAddressEditing.bind(this);
     const startWebEdit = this.startWebEditing.bind(this);
@@ -224,8 +269,11 @@ export class ContactManager extends Component {
     const handleAddressSecondary = this.handleNewAddressSecondary.bind(this);
     const handleWebMainInput = this.handleNewWebMainInput.bind(this);
     const handleNewWebSecondary = this.handleNewWebSecondary.bind(this);
+    const handlePhoneMainInput = this.handleNewPhoneMainInput.bind(this);
+    const handleNewPhoneSecondary = this.handleNewPhoneSecondary.bind(this);
     const confirmAddressChange = this.confirmNewInputAddress.bind(this);
     const confirmWebChange = this.confirmNewInputWeb.bind(this);
+    const confirmPhoneChange = this.confirmNewInputPhone.bind(this);
 
     return (
       <StyledContactContainer>
@@ -270,6 +318,12 @@ export class ContactManager extends Component {
           isEdited={this.state.phoneEditing}
           startEdit={startPhoneEdit}
           endEdit={endPhoneEdit}
+          handleEdit={createConfirmPhoneBtn}
+          handleMain={handlePhoneMainInput}
+          handleSecondary={handleNewPhoneSecondary}
+          confirmValues={confirmPhoneChange}
+          handleConfirm={createEditPhoneBtn}
+          buttonText={this.state.buttonPhoneText}
         />
       </StyledContactContainer>
     );
