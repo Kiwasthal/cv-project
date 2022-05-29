@@ -21,19 +21,23 @@ export class ContactManager extends Component {
       },
       webHovering: false,
       webEditing: false,
-      web: {
+      webMain: {
         mainInput: '',
-        secondaryInput: '',
-        templateText: 'contact@gmail.com',
-        templateTextSecondary: 'www.contactMe.com',
+        templateText: 'contact@example.com',
+      },
+      webSecondary: {
+        mainInput: '',
+        templateText: 'www.example-site.com',
       },
       phoneHovering: false,
       phoneEditing: false,
-      phone: {
+      phoneMain: {
         mainInput: '',
-        secondaryInput: '',
-        templateText: '210123123123',
-        templateTextSecondary: '6901234567',
+        templateText: '210-011011010',
+      },
+      phoneSecondary: {
+        mainInput: '',
+        templateText: '6901010101',
       },
       buttonText: 'EDIT',
     };
@@ -99,6 +103,30 @@ export class ContactManager extends Component {
     });
   }
 
+  startWebEditing() {
+    this.setState({
+      webEditing: true,
+    });
+  }
+
+  endWebEditing() {
+    this.setState({
+      webEditing: false,
+    });
+  }
+
+  startPhoneEditing() {
+    this.setState({
+      phoneEditing: true,
+    });
+  }
+
+  endPhoneEditing() {
+    this.setState({
+      phoneEditing: false,
+    });
+  }
+
   handleNewAddressMainInput(e) {
     this.setState({
       addressMain: {
@@ -117,7 +145,25 @@ export class ContactManager extends Component {
     });
   }
 
-  confirmNewInput() {
+  handleNewWebMainInput(e) {
+    this.setState({
+      webMain: {
+        mainInput: e.target.value,
+        templateText: this.state.webMain.templateText,
+      },
+    });
+  }
+
+  handleNewWebSecondary(e) {
+    this.setState({
+      webSecondary: {
+        mainInput: e.target.value,
+        templateText: this.state.webSecondary.templateText,
+      },
+    });
+  }
+
+  confirmNewInputAddress() {
     this.setState({
       addressMain: {
         mainInput: '',
@@ -126,6 +172,19 @@ export class ContactManager extends Component {
       addressSecondary: {
         mainInput: '',
         templateTextCity: this.state.addressSecondary.mainInput,
+      },
+    });
+  }
+
+  confirmNewInputWeb() {
+    this.setState({
+      webMain: {
+        mainInput: '',
+        templateText: this.state.webMain.mainInput,
+      },
+      webSecondary: {
+        mainInput: '',
+        templateText: this.state.webSecondary.mainInput,
       },
     });
   }
@@ -141,9 +200,16 @@ export class ContactManager extends Component {
     const createEditBtn = this.createEditBtn.bind(this);
     const startAddressEdit = this.startAddressEditing.bind(this);
     const endAddressEdit = this.endAddressEditing.bind(this);
+    const startWebEdit = this.startWebEditing.bind(this);
+    const endWebEdit = this.endWebEditing.bind(this);
+    const startPhoneEdit = this.startPhoneEditing.bind(this);
+    const endPhoneEdit = this.endPhoneEditing.bind(this);
     const handleAddressMainInput = this.handleNewAddressMainInput.bind(this);
     const handleAddressSecondary = this.handleNewAddressSecondary.bind(this);
-    const confirmAddressChange = this.confirmNewInput.bind(this);
+    const handleWebMainInput = this.handleNewWebMainInput.bind(this);
+    const handleNewWebSecondary = this.handleNewWebSecondary.bind(this);
+    const confirmAddressChange = this.confirmNewInputAddress.bind(this);
+    const confirmWebChange = this.confirmNewInputWeb.bind(this);
 
     return (
       <StyledContactContainer>
@@ -164,18 +230,30 @@ export class ContactManager extends Component {
           buttonText={this.state.buttonText}
         />
         <WebContainer
-          textUpper={this.state.web.templateText}
-          textBottom={this.state.web.templateTextSecondary}
+          textUpper={this.state.webMain.templateText}
+          textBottom={this.state.webSecondary.templateText}
           renderBtn={renderWebEditButton}
           hideBtn={hideWebEditButton}
           isHovered={this.state.webHovering}
+          isEdited={this.state.webEditing}
+          startEdit={startWebEdit}
+          endEdit={endWebEdit}
+          handleEdit={createConfirmBtn}
+          handleMain={handleWebMainInput}
+          handleSecondary={handleNewWebSecondary}
+          confirmValues={confirmWebChange}
+          handleConfirm={createConfirmBtn}
+          buttonText={this.state.buttonText}
         />
         <PhoneContainer
-          textUpper={this.state.phone.templateText}
-          textBottom={this.state.phone.templateTextSecondary}
+          textUpper={this.state.phoneMain.templateText}
+          textBottom={this.state.phoneSecondary.templateText}
           renderBtn={renderPhoneEditButton}
           hideBtn={hidePhoneEditButton}
           isHovered={this.state.phoneHovering}
+          isEdited={this.state.phoneEditing}
+          startEdit={startPhoneEdit}
+          endEdit={endPhoneEdit}
         />
       </StyledContactContainer>
     );

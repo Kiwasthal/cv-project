@@ -2,6 +2,7 @@ import { Component } from 'react';
 import {
   StyledContactSubHeader,
   StyledContactInformationHolder,
+  StyledContactInput,
 } from '../../StyledComponents/Components.styled';
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +11,51 @@ import ContactEditButton from './ContactEditButton';
 
 class WebContainer extends Component {
   render() {
-    const { textUpper, textBottom, renderBtn, hideBtn, isHovered } = this.props;
-    return isHovered ? (
+    const {
+      textUpper,
+      textBottom,
+      renderBtn,
+      hideBtn,
+      isHovered,
+      isEdited,
+      buttonText,
+      handleEdit,
+      handleMain,
+      handleSecondary,
+      handleConfirm,
+      startEdit,
+      endEdit,
+      confirmValues,
+    } = this.props;
+    return isEdited ? (
+      <StyledContactInformationContainer onMouseLeave={hideBtn}>
+        <StyledContactSubHeader>WEB</StyledContactSubHeader>
+        <FontAwesomeIcon
+          icon={faGlobe}
+          style={{
+            color: 'orange',
+            gridArea: '1 / 1 / 4 / 2',
+            justifySelf: 'Center',
+            alignSelf: 'flex-start',
+            height: '35px',
+            marginTop: '10px',
+          }}
+        />
+        <StyledContactInput
+          style={{ alignSelf: 'flex-start' }}
+          onChange={handleMain}
+        />
+        <StyledContactInput onChange={handleSecondary} />
+        <ContactEditButton
+          handleEdit={handleEdit}
+          handleConfirm={handleConfirm}
+          text={buttonText}
+          startEdit={startEdit}
+          endEdit={endEdit}
+          confirmValues={confirmValues}
+        />
+      </StyledContactInformationContainer>
+    ) : isHovered ? (
       <StyledContactInformationContainer onMouseLeave={hideBtn}>
         <StyledContactSubHeader>WEB</StyledContactSubHeader>
         <FontAwesomeIcon
@@ -31,7 +75,12 @@ class WebContainer extends Component {
         <StyledContactInformationHolder>
           {textBottom}
         </StyledContactInformationHolder>
-        <ContactEditButton />
+        <ContactEditButton
+          handleEdit={handleEdit}
+          handleConfirm={handleConfirm}
+          text={buttonText}
+          startEdit={startEdit}
+        />
       </StyledContactInformationContainer>
     ) : (
       <StyledContactInformationContainer onMouseEnter={renderBtn}>
