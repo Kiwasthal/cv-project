@@ -6,6 +6,7 @@ import {
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import ContactEditButton from './ContactEditButton';
 
 class PhoneContainer extends Component {
   renderProper() {}
@@ -32,7 +33,7 @@ class PhoneContainer extends Component {
         <StyledContactInformationHolder>
           {textBottom}
         </StyledContactInformationHolder>
-        <button>edit</button>
+        <ContactEditButton />
       </StyledContactInformationContainer>
     ) : (
       <StyledContactInformationContainer onMouseEnter={renderBtn}>

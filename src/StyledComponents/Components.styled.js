@@ -139,6 +139,7 @@ const StyledContactContainer = styled.div`
   z-index: 1000;
   display: grid;
   grid-template-rows: 70px 70px 70px;
+  position: relative;
 `;
 
 const StyledContactInformationContainer = styled.div`
@@ -152,6 +153,16 @@ const StyledContactSubHeader = styled.h6`
   color: #fff;
   align-self: flex-end;
   justify-self: flex-start;
+`;
+
+const StyledContactEditButton = styled.button`
+  position: absolute;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: orange;
+  font-weight: 600;
+  border: 1px solid black;
 `;
 
 const StyledEducationModal = styled.div`
@@ -202,4 +213,5 @@ export {
   StyledEducationTitle,
   StyledFooter,
   StyledContactInformationHolder,
+  StyledContactEditButton,
 };

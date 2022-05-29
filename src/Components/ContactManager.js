@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { StyledContactContainer } from '../StyledComponents/Components.styled';
 import AddressContainer from './Contact/AddressContainer';
 import WebContainer from './Contact/WebContainer';
@@ -13,29 +10,32 @@ export class ContactManager extends Component {
     super(props);
     this.state = {
       addressHovering: false,
-      address: {
+      addressEditing: false,
+      addressMain: {
         mainInput: '',
-        secondaryInput: '',
-        editing: false,
         templateText: '123 Street Athens',
+      },
+      addressSecondary: {
+        secondaryInput: '',
         templateTextCity: 'Greece',
       },
       webHovering: false,
+      webEditing: false,
       web: {
         mainInput: '',
         secondaryInput: '',
-        editing: false,
         templateText: 'contact@gmail.com',
         templateTextSecondary: 'www.contactMe.com',
       },
       phoneHovering: false,
+      phoneEditing: false,
       phone: {
         mainInput: '',
         secondaryInput: '',
-        editing: false,
         templateText: '210123123123',
         templateTextSecondary: '6901234567',
       },
+      buttonText: 'EDIT',
     };
   }
 
@@ -75,6 +75,48 @@ export class ContactManager extends Component {
     });
   }
 
+  createConfirmBtn() {
+    this.setState({
+      buttonText: 'CONFIRM',
+    });
+  }
+
+  createEditBtn() {
+    this.setState({
+      buttonText: 'EDIT',
+    });
+  }
+
+  startAdressEditing() {
+    this.setState({
+      addressEditing: true,
+    });
+  }
+
+  endAdressEditing() {
+    this.setState({
+      addressEditing: false,
+    });
+  }
+
+  handleNewAdressMainInput(e) {
+    this.setState({
+      addressMain: {
+        mainInput: e.target.value,
+        templateText: this.state.addressMain.templateText,
+      },
+    });
+  }
+
+  confirmNewInput() {
+    this.setState({
+      addressMain: {
+        mainInput: '',
+        templateText: this.state.addressMain.mainInput,
+      },
+    });
+  }
+
   render() {
     const renderAdressEditButton = this.revealAddressEditingButton.bind(this);
     const renderWebEditButton = this.revealWebEditingButton.bind(this);
@@ -82,15 +124,29 @@ export class ContactManager extends Component {
     const hideAddressEditButon = this.hideAddressEditingButton.bind(this);
     const hideWebEditButton = this.hideWebEditingButton.bind(this);
     const hidePhoneEditButton = this.hidePhoneEditingButton.bind(this);
+    const createConfirmBtn = this.createConfirmBtn.bind(this);
+    const createEditBtn = this.createEditBtn.bind(this);
+    const startAddressEdit = this.startAdressEditing.bind(this);
+    const endAddressEdit = this.endAdressEditing.bind(this);
+    const handleAddressInput = this.handleNewAdressMainInput.bind(this);
+    const confirmAdressChange = this.confirmNewInput.bind(this);
 
     return (
       <StyledContactContainer>
         <AddressContainer
-          textUpper={this.state.address.templateText}
-          textBottom={this.state.address.templateTextCity}
+          textUpper={this.state.addressMain.templateText}
+          textBottom={this.state.addressSecondary.templateTextCity}
           renderBtn={renderAdressEditButton}
           hideBtn={hideAddressEditButon}
           isHovered={this.state.addressHovering}
+          isEdited={this.state.addressEditing}
+          startEdit={startAddressEdit}
+          endEdit={endAddressEdit}
+          handleEdit={createConfirmBtn}
+          handleChange={handleAddressInput}
+          confirmValues={confirmAdressChange}
+          handleConfirm={createEditBtn}
+          buttonText={this.state.buttonText}
         />
         <WebContainer
           textUpper={this.state.web.templateText}

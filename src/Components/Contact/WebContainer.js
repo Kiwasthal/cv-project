@@ -6,6 +6,7 @@ import {
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import ContactEditButton from './ContactEditButton';
 
 class WebContainer extends Component {
   render() {
@@ -30,7 +31,7 @@ class WebContainer extends Component {
         <StyledContactInformationHolder>
           {textBottom}
         </StyledContactInformationHolder>
-        <button>Edit</button>
+        <ContactEditButton />
       </StyledContactInformationContainer>
     ) : (
       <StyledContactInformationContainer onMouseEnter={renderBtn}>

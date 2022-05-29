@@ -6,11 +6,49 @@ import {
 import { StyledContactInformationContainer } from '../../StyledComponents/Components.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import ContactEditButton from './ContactEditButton';
 
 class AddressContainer extends Component {
   render() {
-    const { textUpper, textBottom, renderBtn, hideBtn, isHovered } = this.props;
-    return isHovered ? (
+    const {
+      textUpper,
+      textBottom,
+      renderBtn,
+      hideBtn,
+      isHovered,
+      isEdited,
+      buttonText,
+      handleEdit,
+      handleConfirm,
+      startEdit,
+      endEdit,
+    } = this.props;
+
+    return isEdited ? (
+      <StyledContactInformationContainer onMouseLeave={hideBtn}>
+        <StyledContactSubHeader>ADDRESS</StyledContactSubHeader>
+        <FontAwesomeIcon
+          icon={faLocationDot}
+          style={{
+            color: 'orange',
+            gridArea: '1 / 1 / 4 / 2',
+            justifySelf: 'Center',
+            alignSelf: 'flex-start',
+            height: '35px',
+            marginTop: '10px',
+          }}
+        />
+        <input type="text" />
+        <input type="text" />
+        <ContactEditButton
+          handleEdit={handleEdit}
+          handleConfirm={handleConfirm}
+          text={buttonText}
+          startEdit={startEdit}
+          endEdit={endEdit}
+        />
+      </StyledContactInformationContainer>
+    ) : isHovered ? (
       <StyledContactInformationContainer onMouseLeave={hideBtn}>
         <StyledContactSubHeader>ADDRESS</StyledContactSubHeader>
         <FontAwesomeIcon
@@ -30,7 +68,12 @@ class AddressContainer extends Component {
         <StyledContactInformationHolder>
           {textBottom}
         </StyledContactInformationHolder>
-        <button style={{ position: 'absolute' }}>Edit </button>
+        <ContactEditButton
+          handleEdit={handleEdit}
+          handleConfirm={handleConfirm}
+          text={buttonText}
+          startEdit={startEdit}
+        />
       </StyledContactInformationContainer>
     ) : (
       <StyledContactInformationContainer onMouseEnter={renderBtn}>
