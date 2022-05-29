@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const RightPartition = styled.div`
   background-color: #2a2a2c;
-  grid-area: 1 / 6 / 12 / 7;
+  grid-area: 1 / 7 / 15 / 8;
   z-index: 999;
 `;
 
@@ -16,7 +16,7 @@ const StyledImageHolder = styled.div`
 
 const StyledTitleModal = styled.div`
   background-color: #f39e09;
-  grid-area: 3 / 4 / 4 / 7;
+  grid-area: 3 / 4 / 4 / 8;
   display: grid;
   grid-template-rows: 20% 40% 20% 20%;
   grid-template-columns: 30% 5% 35% 30%;
@@ -128,18 +128,52 @@ const StylectContactHeader = styled.h5`
   padding: 10px 5px;
   border: 2px solid #f39e09;
   z-index: 1001;
-  grid-area: 5 / 6 / 6 / 7;
+  grid-area: 5 / 7 / 6 / 8;
   cursor: default;
 `;
 
 const StyledContactContainer = styled.div`
   justify-self: center;
   width: 80%;
-  grid-area: 7 / 6 / 10 / 7;
+  grid-area: 7 / 7 / 10 / 8;
   border: 1px solid red;
   z-index: 1000;
   display: grid;
+  grid-template-rows: 70px 70px 70px;
+`;
+
+const StyledContactInformationContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr;
+`;
+
+const StyledContactSubHeader = styled.h6`
+  margin: 0;
+  color: #fff;
+  align-self: flex-end;
+  justify-self: flex-start;
+`;
+
+const StyledEducationModal = styled.div`
+  grid-area: 8 / 1 / 9 /6;
+  background-color: orange;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const StyledEducationTitle = styled.h4`
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  color: #fff;
+  padding-right: 20px;
+`;
+
+const StyledFooter = styled.div`
+  grid-area: 13 / 1 / 14 / 7;
+  background-color: orange;
 `;
 
 export {
@@ -153,4 +187,9 @@ export {
   StyledTitleInputSecondary,
   StylectContactHeader,
   StyledContactContainer,
+  StyledContactInformationContainer,
+  StyledContactSubHeader,
+  StyledEducationModal,
+  StyledEducationTitle,
+  StyledFooter,
 };
