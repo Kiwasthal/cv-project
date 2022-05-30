@@ -10,7 +10,14 @@ export class EducationManager extends Component {
     this.state = {
       hovering: false,
       fromDisplaying: false,
+      educationSegments: [],
     };
+  }
+
+  addEducationSegment(segment) {
+    this.setState(prevState => ({
+      educationSegments: [...prevState.educationSegments, segment],
+    }));
   }
 
   startDisplayingForm = () => {
@@ -40,15 +47,16 @@ export class EducationManager extends Component {
   render() {
     const revealForm = this.startDisplayingForm.bind(this);
     const hideForm = this.stopDisplayingForm.bind(this);
+    const addSegment = this.addEducationSegment.bind(this);
 
     return this.state.fromDisplaying ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
         <EducationAddButton reveal={revealForm} />
-        <EducationForm hide={hideForm} />
+        <EducationForm hide={hideForm} addSegment={addSegment} />
       </StyledEducationWrapper>
     ) : this.state.hovering ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
-        {/* <EducationAddButton reveal={revealForm} hide={hideForm} /> */}
+        <EducationAddButton reveal={revealForm} hide={hideForm} />
       </StyledEducationWrapper>
     ) : (
       <StyledEducationWrapper

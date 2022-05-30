@@ -360,22 +360,61 @@ const StyledEducationTitle = styled.h4`
 `;
 
 const StyledEducationWrapper = styled.div`
-  border: 1px solid orange;
   grid-area: 8 / 1 / 11 / 7;
+`;
+
+const StyledEducationSegmentsDisplay = styled.div`
+  grid-area: 9 / 1 / 11 / 7;
+  background-color: orange;
 `;
 
 const StyledEducationFormContainer = styled.div`
   position: relative;
+  box-shadow: 2px 8px 5px black;
+  border-radius: 20px;
   background-color: #2a2a2c;
   width: 300px;
-  height: 400px;
+  height: 300px;
   z-index: 1004;
+  padding-top: 30px;
 `;
 
 const StyledInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const StyledEducationInput = styled.input`
+  width: 80%;
+  height: 50%;
+  background-color: black;
+  color: #fff;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-radius: 15px;
+  }
+`;
+
+const StyledCreateEducationSegmentButton = styled.button`
+  color: #fff;
+  border-radius: 5px;
+  width: 50%;
+  align-self: center;
+  padding: 5px 10px;
+  background-color: orange;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid black;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
 `;
 
 const StyledFooter = styled.div`
@@ -427,4 +466,7 @@ export {
   StyledEducationWrapper,
   StyledEducationFormContainer,
   StyledInputWrapper,
+  StyledEducationInput,
+  StyledCreateEducationSegmentButton,
+  StyledEducationSegmentsDisplay,
 };

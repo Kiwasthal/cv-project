@@ -3,6 +3,8 @@ import {
   StyledEducationFormContainer,
   StyledCloseFormSymbol,
   StyledInputWrapper,
+  StyledEducationInput,
+  StyledCreateEducationSegmentButton,
 } from '../../StyledComponents/Components.styled';
 import { Component } from 'react';
 
@@ -12,19 +14,72 @@ export class EducationForm extends Component {
     this.state = {
       education: {
         date: '',
-        system: '',
-        title: '',
+        university: '',
+        degree: '',
         description: '',
         id: uniqid(),
       },
     };
   }
+
+  editingDate(e) {
+    this.setState({
+      education: {
+        date: e.target.value,
+        university: this.state.education.university,
+        degree: this.state.education.degree,
+        description: this.state.education.description,
+        id: this.state.education.id,
+      },
+    });
+  }
+
+  editingUniversity(e) {
+    this.setState({
+      education: {
+        date: this.state.education.date,
+        university: e.target.value,
+        degree: this.state.education.degree,
+        description: this.state.education.description,
+        id: this.state.education.id,
+      },
+    });
+  }
+
+  editingDegree(e) {
+    this.setState({
+      education: {
+        date: this.state.education.date,
+        university: this.state.education.university,
+        degree: e.target.value,
+        description: this.state.education.description,
+        id: this.state.education.id,
+      },
+    });
+  }
+
+  editingDescription(e) {
+    this.setState({
+      education: {
+        date: this.state.education.date,
+        university: this.state.education.university,
+        degree: this.state.education.degree,
+        description: e.target.value,
+        id: this.state.education.id,
+      },
+    });
+  }
+
   render() {
-    const { hide } = this.props;
+    const { hide, addSegment } = this.props;
+    const editDate = this.editingDate.bind(this);
+    const editUniversity = this.editingUniversity.bind(this);
+    const editDegree = this.editingDegree.bind(this);
+    const editDescription = this.editingDescription.bind(this);
     return (
       <StyledEducationFormContainer>
         <StyledCloseFormSymbol
-          style={{ color: 'orange', fontSize: '30px' }}
+          style={{ color: 'orange', fontSize: '30px', top: '0' }}
           onClick={hide}
         >
           +
@@ -32,19 +87,48 @@ export class EducationForm extends Component {
         <form
           style={{
             display: 'flex',
-            gap: '20px',
+            gap: '10px',
             flexDirection: 'column',
             justifyItems: 'space-evenly',
           }}
         >
           <StyledInputWrapper>
-            <label>DATE</label>
-            <input />
+            <label style={{ color: 'orange' }}>FROM-TO</label>
+            <StyledEducationInput
+              value={this.state.education.date}
+              onChange={editDate}
+            />
           </StyledInputWrapper>
           <StyledInputWrapper>
-            <label>DATE</label>
-            <input />
+            <label style={{ color: 'orange' }}>UNIVERSITY</label>
+            <StyledEducationInput
+              value={this.state.education.university}
+              onChange={editUniversity}
+            />
           </StyledInputWrapper>
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>DEGREE</label>
+            <StyledEducationInput
+              value={this.state.education.degree}
+              onChange={editDegree}
+            />
+          </StyledInputWrapper>
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>DESCRIPTION</label>
+            <StyledEducationInput
+              value={this.state.education.description}
+              onChange={editDescription}
+            />
+          </StyledInputWrapper>
+          <StyledCreateEducationSegmentButton
+            onClick={e => {
+              e.preventDefault();
+              addSegment(this.state.education);
+              hide();
+            }}
+          >
+            Create
+          </StyledCreateEducationSegmentButton>
         </form>
       </StyledEducationFormContainer>
     );
