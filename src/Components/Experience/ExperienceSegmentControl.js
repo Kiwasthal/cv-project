@@ -6,11 +6,11 @@ import {
   StyledEducationSegmentDegree,
   StyledEducationSegmentDescription,
 } from '../../StyledComponents/Components.styled';
-import EducationForm from './EducationForm';
+import EducationForm from '../Education/EducationForm';
 
 import { Component } from 'react';
 
-export class EducationSegmentControl extends Component {
+export class ExperienceSegmentControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,10 +59,10 @@ export class EducationSegmentControl extends Component {
         <StyledEducationSegmentMarker />
         <StyledEducationHeader>{segment.date}</StyledEducationHeader>
         <StyledEducationSegmentUniversity>
-          {segment.university}
+          {segment.workplace}
         </StyledEducationSegmentUniversity>
         <StyledEducationSegmentDegree>
-          {segment.degree}
+          {segment.position}
         </StyledEducationSegmentDegree>
         <StyledEducationSegmentDescription>
           {segment.description}
@@ -83,10 +83,10 @@ export class EducationSegmentControl extends Component {
         <StyledEducationSegmentMarker />
         <StyledEducationHeader>{segment.date}</StyledEducationHeader>
         <StyledEducationSegmentUniversity>
-          {segment.university}
+          {segment.workplace}
         </StyledEducationSegmentUniversity>
         <StyledEducationSegmentDegree>
-          {segment.degree}
+          {segment.position}
         </StyledEducationSegmentDegree>
         <StyledEducationSegmentDescription>
           {segment.description}
@@ -97,10 +97,10 @@ export class EducationSegmentControl extends Component {
         <StyledEducationSegmentMarker />
         <StyledEducationHeader>{segment.date}</StyledEducationHeader>
         <StyledEducationSegmentUniversity>
-          {segment.university}
+          {segment.workplace}
         </StyledEducationSegmentUniversity>
         <StyledEducationSegmentDegree>
-          {segment.degree}
+          {segment.description}
         </StyledEducationSegmentDegree>
         <StyledEducationSegmentDescription>
           {segment.description}
@@ -110,4 +110,4 @@ export class EducationSegmentControl extends Component {
   }
 }
 
-export default EducationSegmentControl;
+export default ExperienceSegmentControl;
