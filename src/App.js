@@ -11,6 +11,7 @@ import EducationHeaderModal from './Components/Education/EducationHeaderModal';
 import ExperienceHeaderModal from './Components/Experience/ExperienceHeaderModal';
 import SkillsManager from './Components/SkillsManager';
 import EducationManager from './Components/EducationManager';
+import ExperienceManager from './Components/ExperienceManager';
 import ImageManager from './Components/ImageManager';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <ContactManager />
       <EducationHeaderModal />
       <EducationManager />
+      <ExperienceManager />
       <ExperienceHeaderModal />
       <StyledSkillsHeader>SKILLS</StyledSkillsHeader>
       <SkillsManager />

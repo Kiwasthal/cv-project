@@ -10,7 +10,7 @@ export class EducationManager extends Component {
     super(props);
     this.state = {
       hovering: false,
-      fromDisplaying: false,
+      formDisplaying: false,
       educationSegments: [],
     };
   }
@@ -59,13 +59,13 @@ export class EducationManager extends Component {
 
   startDisplayingForm = () => {
     this.setState({
-      fromDisplaying: true,
+      formDisplaying: true,
     });
   };
 
   stopDisplayingForm = () => {
     this.setState({
-      fromDisplaying: false,
+      formDisplaying: false,
     });
   };
 
@@ -88,7 +88,7 @@ export class EducationManager extends Component {
     const removeSegment = this.removeEducationSegment.bind(this);
     const editSegment = this.editSegments.bind(this);
 
-    return this.state.fromDisplaying ? (
+    return this.state.formDisplaying ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
         <EducationAddButton reveal={revealForm} />
         <EducationForm hide={hideForm} addSegment={addSegment} />

@@ -366,6 +366,14 @@ const StyledEducationWrapper = styled.div`
   z-index: 2000;
 `;
 
+const StyledExperienceWrapper = styled.div`
+  grid-area: 11 / 1 / 14 / 7;
+  display: grid;
+  grid-template-rows: 45px 1fr;
+  z-index: 2000;
+  border: 1px solid orange;
+`;
+
 const StyledEducationSegmentsDisplay = styled.div`
   display: grid;
   gap: 10px;
@@ -373,7 +381,25 @@ const StyledEducationSegmentsDisplay = styled.div`
   grid-auto-rows: 18%;
 `;
 
+const StyledExperienceSegmentsDisplay = styled.div`
+  display: grid;
+  gap: 10px;
+  grid-area: 2 / 1 / 3 / 2;
+  grid-auto-rows: 18%;
+`;
+
 const StyledEducationFormContainer = styled.div`
+  position: absolute;
+  box-shadow: 2px 8px 5px black;
+  border-radius: 20px;
+  background-color: #2a2a2c;
+  width: 300px;
+  height: 300px;
+  z-index: 1004;
+  padding-top: 30px;
+`;
+
+const StyledExperienceFormContainer = styled.div`
   position: absolute;
   box-shadow: 2px 8px 5px black;
   border-radius: 20px;
@@ -532,4 +558,7 @@ export {
   StyledEducationSegmentUniversity,
   StyledEducationSegmentDegree,
   StyledEducationSegmentDescription,
+  StyledExperienceWrapper,
+  StyledExperienceSegmentsDisplay,
+  StyledExperienceFormContainer,
 };
