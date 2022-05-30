@@ -38,9 +38,32 @@ export class ImageManager extends Component {
         style={{
           backgroundImage: `url(${this.state.image})`,
           backgroundSize: '100%',
+          position: 'relative',
         }}
       >
-        <input type="file" onChange={this.onImageChange} />
+        <label
+          for="img"
+          style={{
+            position: 'absolute',
+            left: '16%',
+            fontWeight: 600,
+            boxShadow: '0px 3px 5px black',
+            top: '30%',
+            cursor: 'pointer',
+            backgroundColor: 'orange',
+            color: '#fff',
+            padding: '10px 5px',
+            border: '3px solid black',
+          }}
+        >
+          Upload Image
+        </label>
+        <input
+          id="img"
+          type="file"
+          onChange={this.onImageChange}
+          style={{ display: 'none' }}
+        />
       </StyledImageHolder>
     ) : (
       <StyledImageHolder
