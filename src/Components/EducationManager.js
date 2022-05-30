@@ -1,6 +1,7 @@
 import { StyledEducationWrapper } from '../StyledComponents/Components.styled';
 import EducationAddButton from './Education/EducationAddButton';
 import EducationForm from './Education/EducationForm';
+import EducationSegmentsDisplayer from './Education/EducationSegmentsDisplayer';
 
 import { Component } from 'react';
 
@@ -53,15 +54,17 @@ export class EducationManager extends Component {
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
         <EducationAddButton reveal={revealForm} />
         <EducationForm hide={hideForm} addSegment={addSegment} />
+        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
       </StyledEducationWrapper>
     ) : this.state.hovering ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
+        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
         <EducationAddButton reveal={revealForm} hide={hideForm} />
       </StyledEducationWrapper>
     ) : (
-      <StyledEducationWrapper
-        onMouseEnter={this.isHovered}
-      ></StyledEducationWrapper>
+      <StyledEducationWrapper onMouseEnter={this.isHovered}>
+        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
+      </StyledEducationWrapper>
     );
   }
 }

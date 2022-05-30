@@ -361,11 +361,16 @@ const StyledEducationTitle = styled.h4`
 
 const StyledEducationWrapper = styled.div`
   grid-area: 8 / 1 / 11 / 7;
+  display: grid;
+  grid-template-rows: 45px 1fr;
+  z-index: 2000;
 `;
 
 const StyledEducationSegmentsDisplay = styled.div`
-  grid-area: 9 / 1 / 11 / 7;
-  background-color: orange;
+  display: grid;
+  gap: 10px;
+  grid-area: 2 / 1 / 3 / 2;
+  grid-auto-rows: 18%;
 `;
 
 const StyledEducationFormContainer = styled.div`
@@ -415,6 +420,57 @@ const StyledCreateEducationSegmentButton = styled.button`
       transform: translateY(4px);
     }
   }
+`;
+
+const StyledEducationSegment = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 5fr 12fr;
+  grid-template-rows: 1fr 2fr;
+`;
+
+const StyledEducationSegmentMarker = styled.div`
+  grid-area: 1 / 1 / 3 / 2;
+  margin-left: 15px;
+  justify-self: center;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  background-color: orange;
+`;
+
+const StyledEducationHeader = styled.p`
+  margin: 0;
+  font-size: 15px;
+  align-self: flex-end;
+  color: black;
+  justify-self: flex-start;
+  padding-left: 16px;
+  font-weight: 300;
+  grid-area: 1 / 2 / 2 / 3;
+`;
+
+const StyledEducationSegmentUniversity = styled.p`
+  grid-area: 2 / 2 / 3 / 3;
+  margin: 0;
+  padding: 0;
+  justify-self: flex-start;
+  padding-left: 16px;
+  font-size: 12px;
+`;
+
+const StyledEducationSegmentDegree = styled.p`
+  grid-area: 1 / 3 / 2 / 4;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 12px;
+`;
+
+const StyledEducationSegmentDescription = styled.p`
+  grid-area: 2 / 3 / 3 / 4;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
 `;
 
 const StyledFooter = styled.div`
@@ -469,4 +525,10 @@ export {
   StyledEducationInput,
   StyledCreateEducationSegmentButton,
   StyledEducationSegmentsDisplay,
+  StyledEducationSegment,
+  StyledEducationSegmentMarker,
+  StyledEducationHeader,
+  StyledEducationSegmentUniversity,
+  StyledEducationSegmentDegree,
+  StyledEducationSegmentDescription,
 };
