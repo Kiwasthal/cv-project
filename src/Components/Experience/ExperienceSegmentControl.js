@@ -9,6 +9,7 @@ import {
 import EducationForm from '../Education/EducationForm';
 
 import { Component } from 'react';
+import ExperienceForm from './ExperienceForm';
 
 export class ExperienceSegmentControl extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ export class ExperienceSegmentControl extends Component {
     const hideForm = this.stopEditing.bind(this);
     return this.state.isEdited ? (
       <StyledEducationSegment onMouseLeave={this.stopHovering}>
-        <EducationForm
+        <ExperienceForm
           reEditing={this.state.segmentEdit}
           values={segment}
           hideForm={hideForm}

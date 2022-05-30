@@ -42,7 +42,7 @@ export class ImageManager extends Component {
         }}
       >
         <label
-          for="img"
+          htmlFor="img"
           style={{
             position: 'absolute',
             left: '16%',
