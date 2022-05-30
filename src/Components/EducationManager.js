@@ -1,5 +1,6 @@
 import { StyledEducationWrapper } from '../StyledComponents/Components.styled';
 import EducationAddButton from './Education/EducationAddButton';
+import EducationForm from './Education/EducationForm';
 
 import { Component } from 'react';
 
@@ -42,11 +43,12 @@ export class EducationManager extends Component {
 
     return this.state.fromDisplaying ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
-        <EducationAddButton reveal={revealForm} hide={hideForm} />
+        <EducationAddButton reveal={revealForm} />
+        <EducationForm hide={hideForm} />
       </StyledEducationWrapper>
     ) : this.state.hovering ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
-        <EducationAddButton reveal={revealForm} hide={hideForm} />
+        {/* <EducationAddButton reveal={revealForm} hide={hideForm} /> */}
       </StyledEducationWrapper>
     ) : (
       <StyledEducationWrapper

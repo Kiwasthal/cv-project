@@ -254,6 +254,7 @@ const StyledAddSkillFormContainer = styled.div`
   z-index: 1001;
   color: orange;
   font-size: 24px;
+  z-index: 1005;
   position: absolute;
 `;
 
@@ -363,6 +364,20 @@ const StyledEducationWrapper = styled.div`
   grid-area: 8 / 1 / 11 / 7;
 `;
 
+const StyledEducationFormContainer = styled.div`
+  position: relative;
+  background-color: #2a2a2c;
+  width: 300px;
+  height: 400px;
+  z-index: 1004;
+`;
+
+const StyledInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const StyledFooter = styled.div`
   grid-area: 13 / 1 / 14 / 7;
   background-color: orange;
@@ -410,4 +425,6 @@ export {
   StyledPercentage,
   StyledRemoveSkillBtn,
   StyledEducationWrapper,
+  StyledEducationFormContainer,
+  StyledInputWrapper,
 };
