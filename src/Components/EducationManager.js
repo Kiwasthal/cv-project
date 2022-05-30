@@ -29,6 +29,17 @@ export class EducationManager extends Component {
     });
   }
 
+  editSegments(index, newDate, newDegree, newUniversity, newDescription) {
+    let segments = [...this.state.educationSegments];
+    let segment = { ...segments[index] };
+    segment.date = newDate;
+    segment.university = newUniversity;
+    segment.degree = newDegree;
+    segment.description = newDescription;
+    segments[index] = segment;
+    this.setState({ educationSegments: segments });
+  }
+
   startDisplayingForm = () => {
     this.setState({
       fromDisplaying: true,
@@ -58,6 +69,7 @@ export class EducationManager extends Component {
     const hideForm = this.stopDisplayingForm.bind(this);
     const addSegment = this.addEducationSegment.bind(this);
     const removeSegment = this.removeEducationSegment.bind(this);
+    const editSegment = this.editSegments.bind(this);
 
     return this.state.fromDisplaying ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
@@ -66,6 +78,7 @@ export class EducationManager extends Component {
         <EducationSegmentsDisplayer
           segments={this.state.educationSegments}
           remove={removeSegment}
+          editSegment={editSegment}
         />
       </StyledEducationWrapper>
     ) : this.state.hovering ? (
@@ -73,6 +86,7 @@ export class EducationManager extends Component {
         <EducationSegmentsDisplayer
           segments={this.state.educationSegments}
           remove={removeSegment}
+          editSegment={editSegment}
         />
         <EducationAddButton reveal={revealForm} hide={hideForm} />
       </StyledEducationWrapper>
@@ -81,6 +95,7 @@ export class EducationManager extends Component {
         <EducationSegmentsDisplayer
           segments={this.state.educationSegments}
           remove={removeSegment}
+          editSegment={editSegment}
         />
       </StyledEducationWrapper>
     );

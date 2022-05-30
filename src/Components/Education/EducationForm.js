@@ -71,12 +71,81 @@ export class EducationForm extends Component {
   }
 
   render() {
-    const { hide, addSegment } = this.props;
+    const {
+      hide,
+      addSegment,
+      values,
+      reEditing,
+      hideForm,
+      index,
+      editSegment,
+    } = this.props;
     const editDate = this.editingDate.bind(this);
     const editUniversity = this.editingUniversity.bind(this);
     const editDegree = this.editingDegree.bind(this);
     const editDescription = this.editingDescription.bind(this);
-    return (
+    return reEditing ? (
+      <StyledEducationFormContainer>
+        <StyledCloseFormSymbol
+          style={{ color: 'orange', fontSize: '30px', top: '0' }}
+          onClick={hideForm}
+        >
+          +
+        </StyledCloseFormSymbol>
+        <form
+          style={{
+            display: 'flex',
+            gap: '10px',
+            flexDirection: 'column',
+            justifyItems: 'space-evenly',
+          }}
+        >
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>FROM-TO</label>
+            <StyledEducationInput
+              defaultValue={values.date}
+              onChange={editDate}
+            />
+          </StyledInputWrapper>
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>UNIVERSITY</label>
+            <StyledEducationInput
+              defaultValue={values.university}
+              onChange={editUniversity}
+            />
+          </StyledInputWrapper>
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>DEGREE</label>
+            <StyledEducationInput
+              defaultValue={values.degree}
+              onChange={editDegree}
+            />
+          </StyledInputWrapper>
+          <StyledInputWrapper>
+            <label style={{ color: 'orange' }}>DESCRIPTION</label>
+            <StyledEducationInput
+              defaultValue={values.date}
+              onChange={editDescription}
+            />
+          </StyledInputWrapper>
+          <StyledCreateEducationSegmentButton
+            onClick={e => {
+              e.preventDefault();
+              editSegment(
+                index,
+                this.state.education.date,
+                this.state.education.degree,
+                this.state.education.university,
+                this.state.education.description
+              );
+              hideForm();
+            }}
+          >
+            EDIT
+          </StyledCreateEducationSegmentButton>
+        </form>
+      </StyledEducationFormContainer>
+    ) : (
       <StyledEducationFormContainer>
         <StyledCloseFormSymbol
           style={{ color: 'orange', fontSize: '30px', top: '0' }}
