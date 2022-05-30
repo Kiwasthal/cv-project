@@ -84,7 +84,6 @@ export class EducationForm extends Component {
     const editUniversity = this.editingUniversity.bind(this);
     const editDegree = this.editingDegree.bind(this);
     const editDescription = this.editingDescription.bind(this);
-    const saveOriginalDate = this.revertToStandardDate.bind(this);
     return reEditing ? (
       <StyledEducationFormContainer>
         <StyledCloseFormSymbol
@@ -132,7 +131,6 @@ export class EducationForm extends Component {
           <StyledCreateEducationSegmentButton
             onClick={e => {
               e.preventDefault();
-              saveOriginalDate(values.date);
               editSegment(
                 index,
                 this.state.education.date,
