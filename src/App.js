@@ -8,9 +8,10 @@ import {
 } from './StyledComponents/Components.styled';
 import TitleModal from './Components/TitleModal';
 import ContactManager from './Components/ContactManager';
-import EductaionHeaderModal from './Components/Education/EductaionHeaderModal';
+import EducationHeaderModal from './Components/Education/EducationHeaderModal';
 import ExperienceHeaderModal from './Components/Experience/ExperienceHeaderModal';
 import SkillsManager from './Components/SkillsManager';
+import EducationManager from './Components/EducationManager';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       <TitleModal />
       <StylectContactHeader>CONTACT ME</StylectContactHeader>
       <ContactManager />
-      <EductaionHeaderModal />
+      <EducationHeaderModal />
+      <EducationManager />
       <ExperienceHeaderModal />
       <StyledSkillsHeader>SKILLS</StyledSkillsHeader>
       <SkillsManager />

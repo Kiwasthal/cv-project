@@ -251,7 +251,7 @@ const StyledAddSkillFormContainer = styled.div`
   height: 200px;
   background-color: #2a2a2c;
   border: 1px solid orange;
-  z-index: 1003;
+  z-index: 1001;
   color: orange;
   font-size: 24px;
   position: absolute;
@@ -358,6 +358,11 @@ const StyledEducationTitle = styled.h4`
   padding-right: 20px;
 `;
 
+const StyledEducationWrapper = styled.div`
+  border: 1px solid orange;
+  grid-area: 8 / 1 / 11 / 7;
+`;
+
 const StyledFooter = styled.div`
   grid-area: 13 / 1 / 14 / 7;
   background-color: orange;
@@ -404,4 +409,5 @@ export {
   StyledSkillBar,
   StyledPercentage,
   StyledRemoveSkillBtn,
+  StyledEducationWrapper,
 };

@@ -5,7 +5,7 @@ import {
 
 import { Component } from 'react';
 
-class EductaionHeaderModal extends Component {
+class EducationHeaderModal extends Component {
   render() {
     return (
       <StyledEducationModal>
@@ -15,4 +15,4 @@ class EductaionHeaderModal extends Component {
   }
 }
 
-export default EductaionHeaderModal;
+export default EducationHeaderModal;
