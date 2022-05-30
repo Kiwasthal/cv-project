@@ -29,13 +29,30 @@ export class EducationManager extends Component {
     });
   }
 
-  editSegments(index, newDate, newDegree, newUniversity, newDescription) {
+  editSegments(
+    index,
+    newDate,
+    defaultDate,
+    newDegree,
+    defaultDegree,
+    newUniversity,
+    defaultUniversity,
+    newDescription,
+    defaultDescription
+  ) {
     let segments = [...this.state.educationSegments];
     let segment = { ...segments[index] };
-    segment.date = newDate;
-    segment.university = newUniversity;
-    segment.degree = newDegree;
-    segment.description = newDescription;
+    newDate === '' ? (segment.date = defaultDate) : (segment.date = newDate);
+    newDegree === ''
+      ? (segment.degree = defaultDegree)
+      : (segment.degree = newDegree);
+    newUniversity === ''
+      ? (segment.university = defaultUniversity)
+      : (segment.university = newUniversity);
+
+    newDescription === ''
+      ? (segment.description = defaultDescription)
+      : (segment.description = newDescription);
     segments[index] = segment;
     this.setState({ educationSegments: segments });
   }

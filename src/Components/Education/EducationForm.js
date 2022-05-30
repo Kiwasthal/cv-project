@@ -70,6 +70,65 @@ export class EducationForm extends Component {
     });
   }
 
+  revertToStandardDate(defaultValue) {
+    if (this.state.education.date == '')
+      this.setState({
+        education: {
+          date: defaultValue,
+          university: this.state.education.university,
+          degree: this.state.education.degree,
+          description: this.state.education.description,
+          id: this.state.education.id,
+        },
+      });
+  }
+
+  revertToStandardUniversity = defaultValue => {
+    if (this.state.education.university === '')
+      this.setState({
+        education: {
+          date: this.state.education.date,
+          university: defaultValue,
+          degree: this.state.education.degree,
+          description: this.state.education.description,
+          id: this.state.education.id,
+        },
+      });
+  };
+
+  revertToStandardDegree = defaultValue => {
+    if (this.state.education.university === '')
+      this.setState({
+        education: {
+          date: this.state.education.date,
+          university: this.state.education.university,
+          degree: defaultValue,
+          description: this.state.education.description,
+          id: this.state.education.id,
+        },
+      });
+  };
+
+  revertToStandardDescription = defaultValue => {
+    if (this.state.education.university === '')
+      this.setState({
+        education: {
+          date: this.state.education.date,
+          university: this.state.education.university,
+          degree: this.state.education.degree,
+          description: defaultValue,
+          id: this.state.education.id,
+        },
+      });
+  };
+
+  revertValues = (date, university, degree, description) => {
+    this.revertToStandardDate(date);
+    this.revertToStandardUniversity(university);
+    this.revertToStandardDegree(degree);
+    this.revertToStandardDescription(description);
+  };
+
   render() {
     const {
       hide,
@@ -84,6 +143,7 @@ export class EducationForm extends Component {
     const editUniversity = this.editingUniversity.bind(this);
     const editDegree = this.editingDegree.bind(this);
     const editDescription = this.editingDescription.bind(this);
+    const saveOriginalDate = this.revertToStandardDate.bind(this);
     return reEditing ? (
       <StyledEducationFormContainer>
         <StyledCloseFormSymbol
@@ -124,19 +184,24 @@ export class EducationForm extends Component {
           <StyledInputWrapper>
             <label style={{ color: 'orange' }}>DESCRIPTION</label>
             <StyledEducationInput
-              defaultValue={values.date}
+              defaultValue={values.description}
               onChange={editDescription}
             />
           </StyledInputWrapper>
           <StyledCreateEducationSegmentButton
             onClick={e => {
               e.preventDefault();
+              saveOriginalDate(values.date);
               editSegment(
                 index,
                 this.state.education.date,
+                values.date,
                 this.state.education.degree,
+                values.degree,
                 this.state.education.university,
-                this.state.education.description
+                values.university,
+                this.state.education.description,
+                values.description
               );
               hideForm();
             }}
