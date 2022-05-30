@@ -374,7 +374,7 @@ const StyledEducationSegmentsDisplay = styled.div`
 `;
 
 const StyledEducationFormContainer = styled.div`
-  position: relative;
+  position: absolute;
   box-shadow: 2px 8px 5px black;
   border-radius: 20px;
   background-color: #2a2a2c;
@@ -426,6 +426,7 @@ const StyledEducationSegment = styled.div`
   display: grid;
   grid-template-columns: 1fr 5fr 12fr;
   grid-template-rows: 1fr 2fr;
+  position: relative;
 `;
 
 const StyledEducationSegmentMarker = styled.div`

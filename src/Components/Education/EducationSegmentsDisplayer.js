@@ -5,11 +5,15 @@ import React, { Component } from 'react';
 
 export class EducationSegmentsDisplayer extends Component {
   render() {
-    const { segments } = this.props;
+    const { segments, remove } = this.props;
     return (
       <StyledEducationSegmentsDisplay>
         {segments.map(segment => (
-          <EducationSegmentControl segment={segment} />
+          <EducationSegmentControl
+            segment={segment}
+            key={segment.id}
+            remove={remove}
+          />
         ))}
       </StyledEducationSegmentsDisplay>
     );

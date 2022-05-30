@@ -21,6 +21,14 @@ export class EducationManager extends Component {
     }));
   }
 
+  removeEducationSegment(removeData) {
+    this.setState({
+      educationSegments: this.state.educationSegments.filter(
+        segment => segment.id !== removeData
+      ),
+    });
+  }
+
   startDisplayingForm = () => {
     this.setState({
       fromDisplaying: true,
@@ -49,21 +57,31 @@ export class EducationManager extends Component {
     const revealForm = this.startDisplayingForm.bind(this);
     const hideForm = this.stopDisplayingForm.bind(this);
     const addSegment = this.addEducationSegment.bind(this);
+    const removeSegment = this.removeEducationSegment.bind(this);
 
     return this.state.fromDisplaying ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
         <EducationAddButton reveal={revealForm} />
         <EducationForm hide={hideForm} addSegment={addSegment} />
-        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
+        <EducationSegmentsDisplayer
+          segments={this.state.educationSegments}
+          remove={removeSegment}
+        />
       </StyledEducationWrapper>
     ) : this.state.hovering ? (
       <StyledEducationWrapper onMouseLeave={this.stopHovering}>
-        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
+        <EducationSegmentsDisplayer
+          segments={this.state.educationSegments}
+          remove={removeSegment}
+        />
         <EducationAddButton reveal={revealForm} hide={hideForm} />
       </StyledEducationWrapper>
     ) : (
       <StyledEducationWrapper onMouseEnter={this.isHovered}>
-        <EducationSegmentsDisplayer segments={this.state.educationSegments} />
+        <EducationSegmentsDisplayer
+          segments={this.state.educationSegments}
+          remove={removeSegment}
+        />
       </StyledEducationWrapper>
     );
   }
