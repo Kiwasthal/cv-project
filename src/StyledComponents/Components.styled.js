@@ -363,14 +363,14 @@ const StyledEducationWrapper = styled.div`
   grid-area: 8 / 1 / 11 / 7;
   display: grid;
   grid-template-rows: 45px 1fr;
-  z-index: 2000;
+  z-index: 3000;
 `;
 
 const StyledExperienceWrapper = styled.div`
   grid-area: 11 / 1 / 14 / 7;
   display: grid;
   grid-template-rows: 45px 1fr;
-  z-index: 2000;
+  z-index: 1000;
   border: 1px solid orange;
 `;
 
@@ -384,6 +384,7 @@ const StyledEducationSegmentsDisplay = styled.div`
 const StyledExperienceSegmentsDisplay = styled.div`
   display: grid;
   gap: 10px;
+  z-index: 1000;
   grid-area: 2 / 1 / 3 / 2;
   grid-auto-rows: 18%;
 `;
@@ -395,7 +396,7 @@ const StyledEducationFormContainer = styled.div`
   background-color: #2a2a2c;
   width: 300px;
   height: 300px;
-  z-index: 1004;
+  z-index: 3004;
   padding-top: 30px;
 `;
 
@@ -406,7 +407,7 @@ const StyledExperienceFormContainer = styled.div`
   background-color: #2a2a2c;
   width: 300px;
   height: 300px;
-  z-index: 1004;
+  z-index: 1002;
   padding-top: 30px;
 `;
 

@@ -100,7 +100,7 @@ export class ExperienceSegmentControl extends Component {
           {segment.workplace}
         </StyledEducationSegmentUniversity>
         <StyledEducationSegmentDegree>
-          {segment.description}
+          {segment.position}
         </StyledEducationSegmentDegree>
         <StyledEducationSegmentDescription>
           {segment.description}
