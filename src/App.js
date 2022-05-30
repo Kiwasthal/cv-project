@@ -1,7 +1,6 @@
 import './App.css';
 import {
   RightPartition,
-  StyledImageHolder,
   StylectContactHeader,
   StyledFooter,
   StyledSkillsHeader,
@@ -12,11 +11,12 @@ import EducationHeaderModal from './Components/Education/EducationHeaderModal';
 import ExperienceHeaderModal from './Components/Experience/ExperienceHeaderModal';
 import SkillsManager from './Components/SkillsManager';
 import EducationManager from './Components/EducationManager';
+import ImageManager from './Components/ImageManager';
 
 function App() {
   return (
     <div className="App">
-      <StyledImageHolder />
+      <ImageManager />
       <RightPartition />
       <TitleModal />
       <StylectContactHeader>CONTACT ME</StylectContactHeader>

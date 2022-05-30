@@ -70,65 +70,6 @@ export class EducationForm extends Component {
     });
   }
 
-  revertToStandardDate(defaultValue) {
-    if (this.state.education.date == '')
-      this.setState({
-        education: {
-          date: defaultValue,
-          university: this.state.education.university,
-          degree: this.state.education.degree,
-          description: this.state.education.description,
-          id: this.state.education.id,
-        },
-      });
-  }
-
-  revertToStandardUniversity = defaultValue => {
-    if (this.state.education.university === '')
-      this.setState({
-        education: {
-          date: this.state.education.date,
-          university: defaultValue,
-          degree: this.state.education.degree,
-          description: this.state.education.description,
-          id: this.state.education.id,
-        },
-      });
-  };
-
-  revertToStandardDegree = defaultValue => {
-    if (this.state.education.university === '')
-      this.setState({
-        education: {
-          date: this.state.education.date,
-          university: this.state.education.university,
-          degree: defaultValue,
-          description: this.state.education.description,
-          id: this.state.education.id,
-        },
-      });
-  };
-
-  revertToStandardDescription = defaultValue => {
-    if (this.state.education.university === '')
-      this.setState({
-        education: {
-          date: this.state.education.date,
-          university: this.state.education.university,
-          degree: this.state.education.degree,
-          description: defaultValue,
-          id: this.state.education.id,
-        },
-      });
-  };
-
-  revertValues = (date, university, degree, description) => {
-    this.revertToStandardDate(date);
-    this.revertToStandardUniversity(university);
-    this.revertToStandardDegree(degree);
-    this.revertToStandardDescription(description);
-  };
-
   render() {
     const {
       hide,
