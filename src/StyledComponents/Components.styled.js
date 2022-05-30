@@ -216,9 +216,8 @@ const StyledSkillsWrapper = styled.div`
 const StyledSkillsContainer = styled.div`
   grid-area: 2 / 1 / 3 / 2;
   display: grid;
-  grid-template-rows: 100px;
+  grid-auto-rows: auto;
   height: 100%;
-  border: 1px solid orange;
   z-index: 1002;
 `;
 
@@ -246,7 +245,7 @@ const StyledAddSKillButton = styled.button`
 
 const StyledAddSkillFormContainer = styled.div`
   border-radius: 10px;
-  top: -100px;
+  top: 00px;
   left: 0;
   width: 200px;
   height: 200px;
@@ -255,7 +254,7 @@ const StyledAddSkillFormContainer = styled.div`
   z-index: 1003;
   color: orange;
   font-size: 24px;
-  position: relative;
+  position: absolute;
 `;
 
 const StyledCloseFormSymbol = styled.div`
@@ -289,6 +288,51 @@ const StyledCreateSkill = styled.button`
   margin-top: 15px;
   transition: all 0.2s ease-in;
   box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
+const StyledSkillContent = styled.div`
+  display: grid;
+  grid-row: auto 50px;
+  position: relative;
+`;
+
+const StyledSkillHeader = styled.h5`
+  color: #fff;
+  align-self: center;
+  margin: 0;
+`;
+
+const StyledSkillBar = styled.div`
+  width: 90%;
+  justify-self: center;
+  height: 25px;
+  border: 2px solid orange;
+  border-radius: 5px;
+`;
+
+const StyledPercentage = styled.div`
+  background-color: orange;
+  height: 100%;
+`;
+
+const StyledRemoveSkillBtn = styled.button`
+  background-color: orange;
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  padding: 5px 5px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
   &:hover {
     background-color: #fff;
     color: orange;
@@ -355,4 +399,9 @@ export {
   StyledCloseFormSymbol,
   StyledSkillInput,
   StyledCreateSkill,
+  StyledSkillContent,
+  StyledSkillHeader,
+  StyledSkillBar,
+  StyledPercentage,
+  StyledRemoveSkillBtn,
 };

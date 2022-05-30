@@ -47,16 +47,26 @@ export class SkillsManager extends Component {
     }));
   }
 
+  removeSkill(target) {
+    this.setState({
+      skills: this.state.skills.filter(skill => skill.skillName !== target),
+    });
+  }
+
   render() {
     const startHover = this.HoverOver.bind(this);
     const stopHover = this.StopHovering.bind(this);
     const formDisplay = this.displayForm.bind(this);
     const closeForm = this.closeForm.bind(this);
     const addSkill = this.addSkill.bind(this);
+    const removeSkill = this.removeSkill.bind(this);
 
     return this.state.formDisplaying ? (
       <StyledSkillsWrapper onMouseLeave={stopHover}>
-        <SkillContainer />
+        <SkillContainer
+          display={this.state.skills}
+          remove={removeSkill}
+        ></SkillContainer>
         <StyledAddSKillButton onClick={formDisplay}>
           ADD +{' '}
         </StyledAddSKillButton>
@@ -64,12 +74,12 @@ export class SkillsManager extends Component {
       </StyledSkillsWrapper>
     ) : this.state.hovered ? (
       <StyledSkillsWrapper onMouseLeave={stopHover}>
-        <SkillContainer skills={this.state.skills} />
+        <SkillContainer display={this.state.skills} remove={removeSkill} />
         <StyledAddSKillButton onClick={formDisplay}>ADD +</StyledAddSKillButton>
       </StyledSkillsWrapper>
     ) : (
       <StyledSkillsWrapper onMouseEnter={startHover}>
-        <SkillContainer></SkillContainer>
+        <SkillContainer display={this.state.skills} remove={removeSkill} />
       </StyledSkillsWrapper>
     );
   }
