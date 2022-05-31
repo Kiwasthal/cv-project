@@ -8,7 +8,7 @@ An application that allows the user to create a custom CV . The user can navigat
 
 --> <a href="https://kiwasthal.github.io/cv-project/"> Application link <--
 
-<img src='./assets/readMeimg.png' alt='Page Placeholder >
+<img src='./assets/readMeimg.png' alt='Page Placeholder' />
 
 # Notes
 
