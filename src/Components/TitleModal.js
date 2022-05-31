@@ -14,11 +14,11 @@ class TitleModal extends Component {
       confirmEdit: 'Confirm',
       mainHandler: {
         mainInput: '',
-        sampleText: 'Panos Koulis',
+        sampleText: 'STEERPIKE',
       },
       secondaryHandler: {
         secondaryInput: '',
-        sampleText: 'Learning React',
+        sampleText: 'LEARNING REACT',
       },
       hovering: false,
       editing: false,
