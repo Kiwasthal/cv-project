@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 An application that allows the user to create a custom CV . The user can navigate the interface by hovering over each field and clicking on the corresponding buttons to initiate edits.
 
---> <a href="https://kiwasthal.github.io/cv-project/"> Application link <--
+--> <a href="https://kiwasthal.github.io/cv-project/"> Application link <--<a/>
 
 <img src='./assets/readMeimg.png' alt='Page Placeholder' />
 
