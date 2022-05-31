@@ -5,9 +5,9 @@ import {
   StyledEducationSegmentUniversity,
   StyledEducationSegmentDegree,
   StyledEducationSegmentDescription,
+  StyledEditSegment,
+  StyledRemoveSegment,
 } from '../../StyledComponents/Components.styled';
-import EducationForm from '../Education/EducationForm';
-
 import { Component } from 'react';
 import ExperienceForm from './ExperienceForm';
 
@@ -71,16 +71,10 @@ export class ExperienceSegmentControl extends Component {
       </StyledEducationSegment>
     ) : this.state.isHovered ? (
       <StyledEducationSegment onMouseLeave={this.stopHovering}>
-        <button style={{ position: 'absolute' }} onClick={this.startEditing}>
-          EDIT
-        </button>
-        <button
-          style={{ position: 'absolute', right: '0' }}
-          id={segment.id}
-          onClick={() => remove(segment.id)}
-        >
-          DELETE
-        </button>
+        <StyledEditSegment onClick={this.startEditing}>Edit</StyledEditSegment>
+        <StyledRemoveSegment id={segment.id} onClick={() => remove(segment.id)}>
+          Remove
+        </StyledRemoveSegment>
         <StyledEducationSegmentMarker />
         <StyledEducationHeader>{segment.date}</StyledEducationHeader>
         <StyledEducationSegmentUniversity>

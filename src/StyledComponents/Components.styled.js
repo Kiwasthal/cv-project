@@ -371,14 +371,13 @@ const StyledExperienceWrapper = styled.div`
   display: grid;
   grid-template-rows: 45px 1fr;
   z-index: 1000;
-  border: 1px solid orange;
 `;
 
 const StyledEducationSegmentsDisplay = styled.div`
   display: grid;
-  gap: 10px;
   grid-area: 2 / 1 / 3 / 2;
-  grid-auto-rows: 18%;
+  gap: 10px;
+  grid-auto-rows: 20%;
 `;
 
 const StyledExperienceSegmentsDisplay = styled.div`
@@ -386,7 +385,7 @@ const StyledExperienceSegmentsDisplay = styled.div`
   gap: 10px;
   z-index: 1000;
   grid-area: 2 / 1 / 3 / 2;
-  grid-auto-rows: 18%;
+  grid-auto-rows: 11%;
 `;
 
 const StyledEducationFormContainer = styled.div`
@@ -469,7 +468,7 @@ const StyledEducationSegmentMarker = styled.div`
 const StyledEducationHeader = styled.p`
   margin: 0;
   font-size: 15px;
-  align-self: flex-end;
+  align-self: center;
   color: black;
   justify-self: flex-start;
   padding-left: 16px;
@@ -481,12 +480,14 @@ const StyledEducationSegmentUniversity = styled.p`
   grid-area: 2 / 2 / 3 / 3;
   margin: 0;
   padding: 0;
+  align-self: center;
   justify-self: flex-start;
   padding-left: 16px;
   font-size: 12px;
 `;
 
 const StyledEducationSegmentDegree = styled.p`
+  align-self: flex-end;
   grid-area: 1 / 3 / 2 / 4;
   margin: 0;
   padding: 0;
@@ -513,6 +514,47 @@ const StyledContactInformationHolder = styled.p`
   color: #fff;
   height: 100%;
   font-size: 0.7rem;
+`;
+
+const StyledEditSegment = styled.button`
+  position: absolute;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: orange;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid black;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+`;
+
+const StyledRemoveSegment = styled.button`
+  position: absolute;
+  right: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: orange;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid black;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px black;
+  &:hover {
+    background-color: #fff;
+    color: orange;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
 `;
 
 export {
@@ -562,4 +604,6 @@ export {
   StyledExperienceWrapper,
   StyledExperienceSegmentsDisplay,
   StyledExperienceFormContainer,
+  StyledEditSegment,
+  StyledRemoveSegment,
 };
